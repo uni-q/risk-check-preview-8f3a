@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>無料リスク診断｜『仕事のミスは、この思考で9割防げる』読者特典</title>
+<meta name="description" content="書籍『仕事のミスは、この思考で9割防げる』読者特典。3分以内で、あなたの仕事のクセに名前をつける簡易リスク診断。">
+<!-- ★テスト公開用：検索エンジンに載せない指定。本番公開（8/24）の前に、この1行を削除してください。 -->
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  /* =========================================================
+     カラー・タイポ設定（デザイントークン）
+     ========================================================= */
+  :root{
+    --ink:#22303F;        /* 本文・見出し */
+    --ink-soft:#3C4C5C;   /* 補助本文 */
+    --slate:#5C6B7A;      /* ラベル・注記 */
+    --paper:#FBF9F4;      /* 背景（紙） */
+    --card:#FFFFFF;       /* カード面 */
+    --brass:#A9782A;      /* 真鍮＝“名前をつける”アクセント */
+    --brass-soft:#C9A24B;
+    --brass-bg:#F6EFDF;   /* 真鍮の薄い面 */
+    --line:#E8E1D2;       /* 罫線 */
+    --line-strong:#D8CFB8;
+    --focus:#2C6E9B;      /* フォーカスリング */
+    --shadow:0 1px 2px rgba(34,48,63,.05), 0 12px 32px rgba(34,48,63,.08);
+    --radius:16px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Noto Sans JP", system-ui, -apple-system, sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    /* 紙のかすかな質感 */
+    background-image:radial-gradient(circle at 18% 12%, rgba(201,162,75,.05), transparent 42%),
+                     radial-gradient(circle at 84% 88%, rgba(34,48,63,.04), transparent 46%);
+  }
+  .wrap{
+    max-width:560px;
+    margin:0 auto;
+    padding:24px 18px 64px;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+
+  /* ヘッダー（書籍名） */
+  .masthead{
+    text-align:center;
+    padding:6px 0 18px;
+  }
+  .masthead .kicker{
+    font-size:12px;
+    letter-spacing:.14em;
+    color:var(--brass);
+    font-weight:700;
+  }
+  .masthead .book{
+    font-size:12.5px;
+    color:var(--slate);
+    margin-top:4px;
+  }
+
+  /* カード共通 */
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:26px 22px;
+  }
+
+  /* スクリーン切替 */
+  .screen{display:none; animation:rise .45s cubic-bezier(.2,.7,.2,1) both;}
+  .screen.active{display:block;}
+  @keyframes rise{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;}}
+
+  /* ---- イントロ ---- */
+  .intro-eyebrow{
+    display:inline-block;
+    font-size:12px; font-weight:700; letter-spacing:.08em;
+    color:var(--brass);
+    background:var(--brass-bg);
+    border-radius:999px;
+    padding:5px 13px;
+    margin-bottom:16px;
+  }
+  h1{
+    font-size:27px; line-height:1.5; font-weight:900;
+    margin:0 0 8px; letter-spacing:.01em;
+  }
+  h1 .accent{color:var(--brass);}
+  .lead{font-size:14.5px; color:var(--ink-soft); margin:12px 0 0;}
+  .meta-row{
+    display:flex; gap:10px; flex-wrap:wrap;
+    margin:20px 0 4px;
+  }
+  .chip{
+    font-size:12.5px; font-weight:700; color:var(--ink-soft);
+    background:var(--paper);
+    border:1px solid var(--line-strong);
+    border-radius:999px; padding:7px 13px;
+  }
+  .note{
+    font-size:12.5px; color:var(--slate); line-height:1.7;
+    margin-top:20px; padding-top:16px; border-top:1px dashed var(--line-strong);
+  }
+
+  /* ボタン */
+  .btn{
+    -webkit-appearance:none; appearance:none;
+    font-family:inherit; cursor:pointer;
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    width:100%;
+    font-size:16px; font-weight:700;
+    padding:16px 20px;
+    border-radius:12px;
+    border:1px solid transparent;
+    transition:transform .12s ease, box-shadow .2s ease, background .2s ease;
+  }
+  .btn-primary{
+    background:var(--ink); color:#fff;
+    box-shadow:0 8px 20px rgba(34,48,63,.22);
+  }
+  .btn-primary:hover{transform:translateY(-1px);}
+  .btn-primary:active{transform:translateY(0);}
+  .btn-ghost{
+    background:transparent; color:var(--ink-soft);
+    border:1px solid var(--line-strong); font-size:14px; padding:13px 18px;
+  }
+  .btn-ghost:hover{background:#fff;}
+  .btn-brass{
+    background:var(--brass); color:#fff;
+    box-shadow:0 8px 20px rgba(169,120,42,.28);
+  }
+  .btn-brass:hover{transform:translateY(-1px);}
+  .btn:focus-visible, a:focus-visible, input:focus-visible, .option:focus-visible{
+    outline:3px solid var(--focus); outline-offset:2px;
+  }
+  .cta-start{margin-top:26px;}
+
+  /* ---- 質問 ---- */
+  .progress{
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:20px;
+  }
+  .steps{display:flex; gap:6px;}
+  .dot{
+    width:26px; height:5px; border-radius:999px; background:var(--line-strong);
+    transition:background .3s ease;
+  }
+  .dot.on{background:var(--brass);}
+  .step-label{font-size:12px; font-weight:700; color:var(--slate); letter-spacing:.06em;}
+
+  .q-index{
+    font-size:12px; font-weight:700; letter-spacing:.12em;
+    color:var(--brass); margin-bottom:8px;
+  }
+  .q-text{
+    font-size:19px; line-height:1.6; font-weight:700;
+    margin:0 0 22px;
+  }
+  .options{display:flex; flex-direction:column; gap:12px;}
+  .option{
+    -webkit-appearance:none; appearance:none;
+    font-family:inherit; text-align:left; cursor:pointer;
+    background:var(--card);
+    border:1.5px solid var(--line-strong);
+    border-radius:14px;
+    padding:17px 18px 17px 52px;
+    position:relative;
+    font-size:14.5px; line-height:1.65; color:var(--ink);
+    transition:border-color .18s ease, background .18s ease, transform .1s ease;
+  }
+  .option:hover{border-color:var(--brass-soft); background:#FFFDF8;}
+  .option:active{transform:scale(.995);}
+  .option .mark{
+    position:absolute; left:16px; top:50%; transform:translateY(-50%);
+    width:24px; height:24px; border-radius:50%;
+    border:1.5px solid var(--line-strong);
+    display:flex; align-items:center; justify-content:center;
+    font-size:12.5px; font-weight:700; color:var(--slate);
+    background:var(--paper);
+  }
+  .option:hover .mark{border-color:var(--brass); color:var(--brass);}
+  .back-row{margin-top:22px;}
+  .back-btn{
+    background:none; border:none; font-family:inherit; cursor:pointer;
+    color:var(--slate); font-size:13px; font-weight:700;
+    padding:6px 2px;
+  }
+  .back-btn:hover{color:var(--ink);}
+
+  /* ---- メール取得（同意）---- */
+  .gate-eyebrow{font-size:12px; font-weight:700; letter-spacing:.1em; color:var(--brass); margin-bottom:8px;}
+  .gate-title{font-size:20px; font-weight:900; margin:0 0 8px;}
+  .gate-lead{font-size:13.5px; color:var(--ink-soft); margin:0 0 20px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block; font-size:12.5px; font-weight:700; color:var(--slate); margin-bottom:6px;}
+  .field input[type="email"]{
+    width:100%; font-family:inherit; font-size:16px; color:var(--ink);
+    padding:14px 15px; border:1.5px solid var(--line-strong); border-radius:12px;
+    background:#fff;
+  }
+  .consent{
+    display:flex; gap:11px; align-items:flex-start;
+    background:var(--paper); border:1px solid var(--line);
+    border-radius:12px; padding:14px 15px; margin-bottom:18px;
+  }
+  .consent input[type="checkbox"]{
+    width:20px; height:20px; margin:2px 0 0; flex:0 0 auto; accent-color:var(--brass); cursor:pointer;
+  }
+  .consent label{font-size:12.5px; line-height:1.7; color:var(--ink-soft); cursor:pointer;}
+  .consent a{color:var(--brass); font-weight:700;}
+  .form-note{font-size:12px; color:var(--slate); margin-top:14px; line-height:1.7;}
+  .error{
+    display:none; font-size:12.5px; font-weight:700; color:#B23B3B;
+    background:#FBEDED; border:1px solid #F2D3D3; border-radius:10px;
+    padding:10px 13px; margin-bottom:16px;
+  }
+  .error.show{display:block;}
+
+  /* ---- 結果（名札）---- */
+  .result-intro{font-size:14px; color:var(--ink-soft); text-align:center; margin:2px 0 16px;}
+  .nameplate{
+    position:relative;
+    text-align:center;
+    background:linear-gradient(180deg,#FFFDF7, var(--brass-bg));
+    border:2px solid var(--brass);
+    border-radius:18px;
+    padding:26px 20px;
+    box-shadow:0 10px 30px rgba(169,120,42,.16);
+    animation:plate .6s cubic-bezier(.2,.8,.25,1) both;
+  }
+  @keyframes plate{from{opacity:0; transform:translateY(12px) scale(.97);} to{opacity:1; transform:none;}}
+  .nameplate .pin{
+    position:absolute; top:12px; left:50%; transform:translateX(-50%);
+    width:9px; height:9px; border-radius:50%;
+    background:var(--brass); box-shadow:0 0 0 3px var(--brass-bg);
+  }
+  .nameplate .of9{font-size:12px; font-weight:700; letter-spacing:.1em; color:var(--brass); margin-top:6px;}
+  .nameplate .risk-name{
+    font-size:34px; font-weight:900; line-height:1.35; color:var(--ink); margin:6px 0 2px;
+  }
+  .nameplate .risk-name .sfx{color:var(--brass);}
+  .result-block{margin-top:22px;}
+  .result-block h3{
+    font-size:12.5px; font-weight:700; letter-spacing:.06em; color:var(--brass);
+    margin:0 0 6px; display:flex; align-items:center; gap:7px;
+  }
+  .result-block h3::before{content:""; width:16px; height:2px; background:var(--brass); border-radius:2px;}
+  .result-block p{font-size:14px; line-height:1.85; color:var(--ink-soft); margin:0;}
+  .draft-tag{
+    font-size:10.5px; font-weight:700; color:var(--slate);
+    border:1px solid var(--line-strong); border-radius:6px; padding:1px 6px; margin-left:6px;
+  }
+  .result-foot{
+    margin-top:24px; padding-top:18px; border-top:1px solid var(--line);
+    font-size:12.5px; color:var(--slate); line-height:1.7;
+  }
+  .result-cta{margin-top:18px; display:flex; flex-direction:column; gap:10px;}
+
+  /* 進捗の“紙のクセ”下部の署名 */
+  .footsign{
+    text-align:center; font-size:11.5px; color:var(--slate);
+    margin-top:auto; padding-top:26px;
+  }
+
+  @media (max-width:400px){
+    h1{font-size:24px;}
+    .nameplate .risk-name{font-size:29px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .screen,.nameplate,.btn{animation:none !important; transition:none !important;}
+  }
+
+  /* iframe埋め込み時：画面いっぱいの高さ指定を解除して、中身の高さにフィットさせる */
+  .embedded .wrap{min-height:auto; padding-top:14px; padding-bottom:22px;}
+  .embedded .footsign{margin-top:22px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="kicker">読者特典・無料リスク診断</div>
+    <div class="book">『仕事のミスは、この思考で9割防げる』</div>
+  </header>
+
+  <!-- ============ テスト公開用パスワード（任意）============ -->
+  <section id="s-lock" class="screen">
+    <div class="card">
+      <span class="intro-eyebrow">関係者プレビュー</span>
+      <h1 style="font-size:22px;">このページは<br>準備中です</h1>
+      <p class="lead">閲覧用パスワードを入力してください。</p>
+      <div class="error" id="lockError">パスワードが違います。</div>
+      <form id="lockForm" novalidate style="margin-top:18px;">
+        <div class="field">
+          <label for="pw">パスワード</label>
+          <input type="password" id="pw" autocomplete="off" placeholder="パスワードを入力">
+        </div>
+        <button type="submit" class="btn btn-primary">開く</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ イントロ ============ -->
+  <section id="s-intro" class="screen active">
+    <div class="card">
+      <span class="intro-eyebrow">3分以内・最短2問</span>
+      <h1>あなたの仕事のクセに、<br><span class="accent">名前</span>をつける。</h1>
+      <p class="lead">
+        いくつかの質問に答えると、9種類の「仕事に潜みやすいリスク」の中から、
+        いま自分に潜んでいるかもしれないものを1つお伝えします。
+      </p>
+      <div class="meta-row">
+        <span class="chip">最短2問・最長3問</span>
+        <span class="chip">9種類のリスク</span>
+      </div>
+      <p class="note">
+        本診断は医学的・心理学的な診断ではなく、楽しみながら自分の仕事のクセを振り返るための簡易コンテンツです。
+        結果は「○○リスクが潜んでいるかもしれない」という形でお伝えします。
+      </p>
+      <button class="btn btn-primary cta-start" id="startBtn">診断をはじめる</button>
+    </div>
+  </section>
+
+  <!-- ============ 質問 ============ -->
+  <section id="s-question" class="screen">
+    <div class="card">
+      <div class="progress">
+        <div class="steps" id="steps">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <span class="step-label" id="stepLabel">STEP 1 / 最大3</span>
+      </div>
+      <div class="q-index" id="qIndex">Q1</div>
+      <h2 class="q-text" id="qText"></h2>
+      <div class="options" id="options"></div>
+      <div class="back-row">
+        <button class="back-btn" id="backBtn">← 前の質問にもどる</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ メール取得（同意）============ -->
+  <section id="s-gate" class="screen">
+    <div class="card">
+      <div class="gate-eyebrow">あと一歩で結果が出ます</div>
+      <h2 class="gate-title">診断結果をメールでもお届けします</h2>
+      <p class="gate-lead">
+        メールアドレスをご登録いただくと、診断結果と、そのリスクへのワンポイントを画面でご覧いただけます。
+      </p>
+
+      <div class="error" id="gateError"></div>
+
+      <!-- Benchmark送信用の隠しiframe（ページ遷移せず登録するため） -->
+      <iframe name="bm_target" id="bmTarget" style="display:none" title="登録処理"></iframe>
+
+      <form id="gateForm" novalidate>
+        <div class="field">
+          <label for="email">メールアドレス</label>
+          <input type="email" id="email" name="email" inputmode="email" autocomplete="email"
+                 placeholder="you@example.com" required>
+        </div>
+
+        <div class="consent">
+          <input type="checkbox" id="agree" required>
+          <label for="agree">
+            ご登録のメールアドレス宛に、〔配信元名〕からのメールマガジンをお送りすることに同意します。
+            配信は無料で、いつでも解除できます。（<a href="#" id="privacyLink" target="_blank" rel="noopener">プライバシーポリシー</a>）
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-brass" id="gateSubmit">結果を見る</button>
+        <p class="form-note">
+          ここで取得したメールアドレスは、本特典専用の配信リストとして管理されます。
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ 結果（名札）============ -->
+  <section id="s-result" class="screen">
+    <div class="card">
+      <p class="result-intro">あなたに潜んでいるかもしれないのは……</p>
+      <div class="nameplate">
+        <span class="pin"></span>
+        <div class="of9">9種類のリスクのうち</div>
+        <div class="risk-name" id="riskName"></div>
+      </div>
+
+      <div class="result-block">
+        <h3>どんなリスク？</h3>
+        <p id="riskDetail"></p>
+      </div>
+      <div class="result-block">
+        <h3>注意したいポイント<span class="draft-tag" id="draftTag">※文言確認中</span></h3>
+        <p id="riskPoint"></p>
+      </div>
+
+      <p class="result-foot">
+        これはあくまで「潜んでいるかもしれない」傾向です。名前をつけて眺めてみると、
+        漠然とした違和感を具体的に捉えやすくなります。本書では、その考え方をより深く紹介しています。
+      </p>
+
+      <div class="result-cta">
+        <a class="btn btn-primary" id="bookLink" href="#" target="_blank" rel="noopener">書籍で詳しく読む</a>
+        <button class="btn btn-ghost" id="retryBtn">もう一度診断する</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="footsign">© 『仕事のミスは、この思考で9割防げる』読者特典</div>
+</div>
+
+<script>
+/* =====================================================================
+   ▼ 設定（Uni／伊豆原さん用）— ここだけ書き換えれば連携できます
+   =====================================================================
+   ■ ベンチマークメール連携（別管理・タグ付け）の手順
+     1. ベンチマーク管理画面で、この特典専用の「コンタクトリスト」を新規作成
+        （例：読者特典_リスク診断）。→ これで他のメルマガ読者と“別管理”になります。
+     2. 「コンタクト → 登録フォーム → 埋込型フォーム」を作成し、
+        登録先リストに 1. のリストを選択。オプトイン（同意確認）はONに。
+        必要なら「タグ」（例：リスク診断／読者特典）も付与設定。
+     3. 生成されたフォームのコードから、以下2つをコピーして貼り付けます：
+          ・<form ... action="ここのURL"> → BENCHMARK_ACTION
+          ・メール入力欄の <input name="ここ"> → BENCHMARK_EMAIL_FIELD
+     4. （任意）診断結果を項目として一緒に送りたい場合は、
+        ベンチマーク側でカスタム項目を1つ作り、その name を BENCHMARK_RESULT_FIELD に。
+        → どの読者がどのリスクだったかをリスト内で見分けられます。
+
+   ※ BENCHMARK_ACTION が空のあいだは「プレビュー用モード」で動作し、
+     送信はスキップして結果画面に進みます（表示確認に使えます）。
+   ===================================================================== */
+const CONFIG = {
+  BENCHMARK_ACTION: "",          // 例: "https://app.benchmarkemail.com/Signup/..."
+  BENCHMARK_EMAIL_FIELD: "",     // 例: "email" もしくは生成コードの name 属性
+  BENCHMARK_RESULT_FIELD: "",    // 任意。空なら結果は送信しません
+  RESULT_GATE: true,             // true=結果表示前にメール登録が必須 / false=先に結果・メール任意
+  BOOK_URL: "#",                 // 書籍の購入・紹介ページURL
+  PRIVACY_URL: "#",              // プライバシーポリシーURL
+
+  /* ★テスト公開用の“目隠し”パスワード（任意）
+     例）PREVIEW_PASSWORD: "vento2408" のように入れると、入力しないと中身が見えなくなります。
+     空 "" のままなら、パスワード画面は出ません。
+     ※簡易的なカーテンです（ソースを見れば突破可能）。本番公開の前に必ず "" に戻してください。 */
+  PREVIEW_PASSWORD: ""
+};
+
+/* ===================== 診断ロジック（PDFのツリー） ===================== */
+const RESULTS = {
+  kako: {
+    name:"過去の栄光",
+    detail:"過去の成功体験が、環境が変わった後も従来のやり方を手放せない原因になるリスクです。",
+    point:"「前はうまくいった」を判断の根拠にしていないか、いまの状況を一度たしかめてみましょう。"
+  },
+  todai: {
+    name:"灯台下暗し",
+    detail:"自分の専門領域や身近なところほど、「自分は分かっている」という思い込みによって、かえって足元が見えなくなるリスクです。",
+    point:"慣れた仕事ほど、あえて第三者の目でチェックする“ひと手間”を挟んでみましょう。"
+  },
+  yude: {
+    name:"ゆでガエル",
+    detail:"目立った問題がないことを安心材料にしている間に、少しずつ進んでいる環境の変化を見落としてしまうリスクです。",
+    point:"「問題がない＝順調」とは限りません。小さな変化を、定点で見る習慣を。"
+  },
+  tako: {
+    name:"タコツボ",
+    detail:"自分の担当領域や上司という「ツボ」の中だけで考え、組織全体の視点を失ってしまうリスクです。",
+    point:"「自分の部署では正解か」だけでなく、「会社全体では？」を一度問い直しましょう。"
+  },
+  yokare: {
+    name:"よかれと思って",
+    detail:"善意や自分なりの「正しさ」が強くなり、ルールを理解していても、自分の判断で一線を越えてしまうリスクです。",
+    point:"善意で動く前に、「これはルール上どうか」をワンクッション挟みましょう。"
+  },
+  yatteru: {
+    name:"やってるふり",
+    detail:"数字や形式を満たすこと自体が目的になり、その裏側にある実態や本来の目的を見失ってしまうリスクです。",
+    point:"数字の達成だけでなく、「本来の目的は果たせているか」をあわせて確認しましょう。"
+  },
+  koe: {
+    name:"声の大きい人優先",
+    detail:"違和感を持っているにもかかわらず、それを言葉にせず、結果として強い意見がそのまま組織の意思になってしまうリスクです。",
+    point:"違和感は、小さくても一度は言葉にして共有してみましょう。"
+  },
+  minna: {
+    name:"みんなで渡れば",
+    detail:"「みんながやっている」という安心感から、自分自身で正しさを判断することをやめ、違和感そのものが薄れていくリスクです。",
+    point:"「みんなやっている」の前に、「自分はどう思うか」を先に決めましょう。"
+  },
+  ikitsuka: {
+    name:"いつかやろう",
+    detail:"「まだ大丈夫」「そのうちやろう」と先送りしている間に、問題が静かに大きくなっていくリスクです。",
+    point:"「まだ大丈夫」と思ったものこそ、今日、最初の一歩だけ着手してみましょう。"
+  }
+};
+
+const TREE = {
+  q1:{ step:1, index:"Q1",
+    q:"仕事が思うように進まないとき、あなたが取りがちな行動に一番近いのは？",
+    options:[
+      { label:"とにかく、いまやっている仕事に注力する", next:"q2a" },
+      { label:"これまでの経験をもとに、自分で考えて何とかする", next:"q2b" },
+      { label:"上司や周囲の人の意見に従う", next:"q2c" }
+    ]},
+  q2a:{ step:2, index:"Q2",
+    q:"仕事が立て込んできたとき、ついやってしまいそうなのはどちら？",
+    options:[
+      { label:"気になっている仕事でも、「今すぐ困るわけではないから」と後回しにする", result:"ikitsuka" },
+      { label:"とにかく目の前の成果を出そうとして、多少無理をしてでも仕事を進める", next:"q3a" }
+    ]},
+  q3a:{ step:3, index:"Q3",
+    q:"成果を出すために、ついやってしまいそうなのはどちら？",
+    options:[
+      { label:"相手や会社のためになると思えば、「このくらいなら」とルールを自分なりに解釈してしまう", result:"yokare" },
+      { label:"求められた数字を達成するためなら、「結果が出ればいい」と中身ややり方を二の次にしてしまう", result:"yatteru" }
+    ]},
+  q2b:{ step:2, index:"Q2",
+    q:"仕事を取り巻く状況が以前とは少し変わってきたと感じたとき、ついやってしまいそうなのはどちら？",
+    options:[
+      { label:"「これまで何度もうまくいってきたのだから」と、実績のあるやり方を続ける", result:"kako" },
+      { label:"「まだ大きな問題にはなっていないから」と、ひとまず今までどおり続ける", next:"q3b" }
+    ]},
+  q3b:{ step:3, index:"Q3",
+    q:"仕事をしていて、つい陥ってしまいそうなのはどちら？",
+    options:[
+      { label:"慣れている仕事ほど、「だいたい分かっているから」と、自分の判断だけで進めてしまう", result:"todai" },
+      { label:"大きな問題が起きていなければ、「今のところ大丈夫だろう」と、そのまま仕事を続けてしまう", result:"yude" }
+    ]},
+  q2c:{ step:2, index:"Q2",
+    q:"仕事の進め方に「これでいいのかな？」と迷ったとき、安心材料になりやすいのはどちら？",
+    options:[
+      { label:"周りの人たちも同じようにやっていること", result:"minna" },
+      { label:"上司や影響力のある人も、そのやり方を認めていること", next:"q3c" }
+    ]},
+  q3c:{ step:3, index:"Q3",
+    q:"自分の考えと周囲の意見が違ったとき、ついやってしまいそうなのはどちら？",
+    options:[
+      { label:"上司の意向を優先するあまり、他部署や会社全体から見てどうなのかまで考えなくなる", result:"tako" },
+      { label:"強く主張する人がいると、違和感があっても反論せず、その人の意見に任せてしまう", result:"koe" }
+    ]}
+};
+
+/* ===================== 画面制御 ===================== */
+const screens = {
+  lock:document.getElementById("s-lock"),
+  intro:document.getElementById("s-intro"),
+  question:document.getElementById("s-question"),
+  gate:document.getElementById("s-gate"),
+  result:document.getElementById("s-result")
+};
+function show(name){
+  Object.values(screens).forEach(s=>s.classList.remove("active"));
+  screens[name].classList.add("active");
+  window.scrollTo({top:0, behavior:"smooth"});
+  postHeight(); // 埋め込み時：親フレームに高さを通知
+  postHeightSoon();
+}
+
+/* iframe埋め込み時に、中身の高さを親ページへ伝える（自動リサイズ用） */
+const IS_EMBEDDED = window.parent !== window;
+function postHeight(){
+  if(!IS_EMBEDDED) return;
+  const h = Math.ceil(document.documentElement.getBoundingClientRect().height);
+  window.parent.postMessage({ type:"riskcheck-height", height:h }, "*");
+}
+// アニメーションやフォント読み込みで高さが変わるので、少し遅らせて数回通知
+function postHeightSoon(){ [60,250,500,750].forEach(t=>setTimeout(postHeight, t)); }
+
+let historyStack = [];   // 進んだノードキー
+let pendingResult = null; // メール取得後に表示する結果キー
+
+const $ = id=>document.getElementById(id);
+
+function renderQuestion(key){
+  const node = TREE[key];
+  // 進捗ドット
+  const dots = $("steps").children;
+  for(let i=0;i<dots.length;i++){ dots[i].classList.toggle("on", i < node.step); }
+  $("stepLabel").textContent = `STEP ${node.step} / 最大3`;
+  $("qIndex").textContent = node.index;
+  $("qText").textContent = node.q;
+
+  const box = $("options");
+  box.innerHTML = "";
+  const marks = ["A","B","C"];
+  node.options.forEach((opt,i)=>{
+    const b = document.createElement("button");
+    b.className = "option";
+    b.type = "button";
+    b.innerHTML = `<span class="mark">${marks[i]}</span>${opt.label}`;
+    b.addEventListener("click", ()=>choose(opt));
+    box.appendChild(b);
+  });
+  $("backBtn").style.visibility = historyStack.length > 1 ? "visible" : "hidden";
+  show("question");
+}
+
+function choose(opt){
+  if(opt.result){
+    pendingResult = opt.result;
+    if(CONFIG.RESULT_GATE){ openGate(); }
+    else { renderResult(pendingResult); }
+  } else if(opt.next){
+    historyStack.push(opt.next);
+    renderQuestion(opt.next);
+  }
+}
+
+$("startBtn").addEventListener("click", ()=>{
+  historyStack = ["q1"];
+  pendingResult = null;
+  renderQuestion("q1");
+});
+
+$("backBtn").addEventListener("click", ()=>{
+  if(historyStack.length > 1){
+    historyStack.pop();
+    renderQuestion(historyStack[historyStack.length-1]);
+  }
+});
+
+$("retryBtn").addEventListener("click", ()=>{
+  historyStack = [];
+  pendingResult = null;
+  show("intro");
+});
+
+/* ===================== メール取得（同意）===================== */
+function openGate(){
+  $("gateError").classList.remove("show");
+  show("gate");
+}
+
+$("gateForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const email = $("email").value.trim();
+  const agree = $("agree").checked;
+  const err = $("gateError");
+
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    err.textContent = "メールアドレスの形式をご確認ください。";
+    err.classList.add("show"); $("email").focus(); return;
+  }
+  if(!agree){
+    err.textContent = "メールマガジンの配信に同意のうえ、チェックを入れてください。";
+    err.classList.add("show"); return;
+  }
+  err.classList.remove("show");
+
+  submitToBenchmark(email, pendingResult);
+  renderResult(pendingResult);
+});
+
+/* ベンチマークへ登録（ページ遷移しないよう隠しiframeへPOST） */
+function submitToBenchmark(email, resultKey){
+  if(!CONFIG.BENCHMARK_ACTION || !CONFIG.BENCHMARK_EMAIL_FIELD){
+    console.warn("[プレビュー用モード] BENCHMARK_ACTION 未設定のため送信をスキップしました。", {email, resultKey});
+    return;
+  }
+  try{
+    const f = document.createElement("form");
+    f.action = CONFIG.BENCHMARK_ACTION;
+    f.method = "post";
+    f.target = "bm_target";
+    f.style.display = "none";
+
+    const add = (name,val)=>{
+      const i = document.createElement("input");
+      i.type = "hidden"; i.name = name; i.value = val; f.appendChild(i);
+    };
+    add(CONFIG.BENCHMARK_EMAIL_FIELD, email);
+    if(CONFIG.BENCHMARK_RESULT_FIELD && resultKey){
+      add(CONFIG.BENCHMARK_RESULT_FIELD, RESULTS[resultKey].name);
+    }
+    document.body.appendChild(f);
+    f.submit();
+    setTimeout(()=>f.remove(), 1500);
+  }catch(ex){
+    console.error("登録処理でエラー:", ex);
+  }
+}
+
+/* ===================== 結果表示 ===================== */
+function renderResult(key){
+  const r = RESULTS[key];
+  $("riskName").innerHTML = `${r.name}<span class="sfx">リスク！</span>`;
+  $("riskDetail").textContent = r.detail;
+  $("riskPoint").textContent = r.point;
+  show("result");
+}
+
+/* ===================== テスト公開用パスワード ===================== */
+document.getElementById("lockForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const ok = document.getElementById("pw").value === CONFIG.PREVIEW_PASSWORD;
+  if(ok){ show("intro"); }
+  else {
+    document.getElementById("lockError").classList.add("show");
+    document.getElementById("pw").value = "";
+    document.getElementById("pw").focus();
+  }
+});
+
+/* ===================== リンク設定の反映＆起動 ===================== */
+document.getElementById("bookLink").href = CONFIG.BOOK_URL || "#";
+document.getElementById("privacyLink").href = CONFIG.PRIVACY_URL || "#";
+
+// 埋め込み時のレイアウト調整と高さ通知
+if(IS_EMBEDDED){
+  document.body.classList.add("embedded");
+  window.addEventListener("resize", postHeight);
+  window.addEventListener("load", postHeightSoon);
+}
+
+// パスワードが設定されていれば最初にロック画面を表示
+if(CONFIG.PREVIEW_PASSWORD){ show("lock"); }
+else { show("intro"); }
+postHeightSoon();
+</script>
+</body>
+</html>
