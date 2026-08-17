@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>無料リスク診断｜『仕事のミスは、この思考で9割防げる』読者特典</title>
 <meta name="description" content="書籍『仕事のミスは、この思考で9割防げる』読者特典。3分以内で、あなたの仕事のクセに名前をつける簡易リスク診断。">
-<!-- ★テスト公開用：検索エンジンに載せない指定。本番公開（8/24）の前に、この1行を削除してください。 -->
+<!-- ★テスト公開用：検索エンジンに載せない指定。本番公開（8/21）の前に、この1行を削除してください。 -->
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,18 +15,18 @@
      カラー・タイポ設定（デザイントークン）
      ========================================================= */
   :root{
-    --ink:#22303F;        /* 本文・見出し */
-    --ink-soft:#3C4C5C;   /* 補助本文 */
-    --slate:#5C6B7A;      /* ラベル・注記 */
-    --paper:#FBF9F4;      /* 背景（紙） */
+    --ink:#1E2E3E;        /* 本文・見出し（ネイビー） */
+    --ink-soft:#3A4A5A;   /* 補助本文 */
+    --slate:#5A6B7B;      /* ラベル・注記 */
+    --paper:#F5F8FC;      /* 背景（クールな紙） */
     --card:#FFFFFF;       /* カード面 */
-    --brass:#A9782A;      /* 真鍮＝“名前をつける”アクセント */
-    --brass-soft:#C9A24B;
-    --brass-bg:#F6EFDF;   /* 真鍮の薄い面 */
-    --line:#E8E1D2;       /* 罫線 */
-    --line-strong:#D8CFB8;
+    --accent:#1D6DAD;     /* アクセント（ブルー＝“名前をつける”） */
+    --accent-soft:#5AA0D6;
+    --accent-bg:#E9F2FA;  /* アクセントの薄い面 */
+    --line:#DBE5EF;       /* 罫線 */
+    --line-strong:#C3D2E0;
     --focus:#2C6E9B;      /* フォーカスリング */
-    --shadow:0 1px 2px rgba(34,48,63,.05), 0 12px 32px rgba(34,48,63,.08);
+    --shadow:0 1px 2px rgba(20,45,75,.05), 0 12px 32px rgba(20,45,75,.09);
     --radius:16px;
   }
   *{box-sizing:border-box;}
@@ -39,8 +39,8 @@
     line-height:1.75;
     -webkit-font-smoothing:antialiased;
     /* 紙のかすかな質感 */
-    background-image:radial-gradient(circle at 18% 12%, rgba(201,162,75,.05), transparent 42%),
-                     radial-gradient(circle at 84% 88%, rgba(34,48,63,.04), transparent 46%);
+    background-image:radial-gradient(circle at 18% 12%, rgba(29,109,173,.06), transparent 42%),
+                     radial-gradient(circle at 84% 88%, rgba(30,46,62,.04), transparent 46%);
   }
   .wrap{
     max-width:560px;
@@ -57,13 +57,13 @@
     padding:6px 0 18px;
   }
   .masthead .kicker{
-    font-size:12px;
+    font-size:14px;
     letter-spacing:.14em;
-    color:var(--brass);
+    color:var(--accent);
     font-weight:700;
   }
   .masthead .book{
-    font-size:12.5px;
+    font-size:14px;
     color:var(--slate);
     margin-top:4px;
   }
@@ -85,9 +85,9 @@
   /* ---- イントロ ---- */
   .intro-eyebrow{
     display:inline-block;
-    font-size:12px; font-weight:700; letter-spacing:.08em;
-    color:var(--brass);
-    background:var(--brass-bg);
+    font-size:14px; font-weight:700; letter-spacing:.08em;
+    color:var(--accent);
+    background:var(--accent-bg);
     border-radius:999px;
     padding:5px 13px;
     margin-bottom:16px;
@@ -96,20 +96,20 @@
     font-size:27px; line-height:1.5; font-weight:900;
     margin:0 0 8px; letter-spacing:.01em;
   }
-  h1 .accent{color:var(--brass);}
-  .lead{font-size:14.5px; color:var(--ink-soft); margin:12px 0 0;}
+  h1 .accent{color:var(--accent);}
+  .lead{font-size:16px; color:var(--ink-soft); margin:12px 0 0;}
   .meta-row{
     display:flex; gap:10px; flex-wrap:wrap;
     margin:20px 0 4px;
   }
   .chip{
-    font-size:12.5px; font-weight:700; color:var(--ink-soft);
+    font-size:14px; font-weight:700; color:var(--ink-soft);
     background:var(--paper);
     border:1px solid var(--line-strong);
     border-radius:999px; padding:7px 13px;
   }
   .note{
-    font-size:12.5px; color:var(--slate); line-height:1.7;
+    font-size:14px; color:var(--slate); line-height:1.7;
     margin-top:20px; padding-top:16px; border-top:1px dashed var(--line-strong);
   }
 
@@ -127,7 +127,7 @@
   }
   .btn-primary{
     background:var(--ink); color:#fff;
-    box-shadow:0 8px 20px rgba(34,48,63,.22);
+    box-shadow:0 8px 20px rgba(20,45,75,.22);
   }
   .btn-primary:hover{transform:translateY(-1px);}
   .btn-primary:active{transform:translateY(0);}
@@ -136,11 +136,11 @@
     border:1px solid var(--line-strong); font-size:14px; padding:13px 18px;
   }
   .btn-ghost:hover{background:#fff;}
-  .btn-brass{
-    background:var(--brass); color:#fff;
+  .btn-accent{
+    background:var(--accent); color:#fff;
     box-shadow:0 8px 20px rgba(169,120,42,.28);
   }
-  .btn-brass:hover{transform:translateY(-1px);}
+  .btn-accent:hover{transform:translateY(-1px);}
   .btn:focus-visible, a:focus-visible, input:focus-visible, .option:focus-visible{
     outline:3px solid var(--focus); outline-offset:2px;
   }
@@ -156,12 +156,12 @@
     width:26px; height:5px; border-radius:999px; background:var(--line-strong);
     transition:background .3s ease;
   }
-  .dot.on{background:var(--brass);}
-  .step-label{font-size:12px; font-weight:700; color:var(--slate); letter-spacing:.06em;}
+  .dot.on{background:var(--accent);}
+  .step-label{font-size:14px; font-weight:700; color:var(--slate); letter-spacing:.06em;}
 
   .q-index{
-    font-size:12px; font-weight:700; letter-spacing:.12em;
-    color:var(--brass); margin-bottom:8px;
+    font-size:14px; font-weight:700; letter-spacing:.12em;
+    color:var(--accent); margin-bottom:8px;
   }
   .q-text{
     font-size:19px; line-height:1.6; font-weight:700;
@@ -176,34 +176,34 @@
     border-radius:14px;
     padding:17px 18px 17px 52px;
     position:relative;
-    font-size:14.5px; line-height:1.65; color:var(--ink);
+    font-size:16px; line-height:1.65; color:var(--ink);
     transition:border-color .18s ease, background .18s ease, transform .1s ease;
   }
-  .option:hover{border-color:var(--brass-soft); background:#FFFDF8;}
+  .option:hover{border-color:var(--accent-soft); background:#F4F9FD;}
   .option:active{transform:scale(.995);}
   .option .mark{
     position:absolute; left:16px; top:50%; transform:translateY(-50%);
     width:24px; height:24px; border-radius:50%;
     border:1.5px solid var(--line-strong);
     display:flex; align-items:center; justify-content:center;
-    font-size:12.5px; font-weight:700; color:var(--slate);
+    font-size:14px; font-weight:700; color:var(--slate);
     background:var(--paper);
   }
-  .option:hover .mark{border-color:var(--brass); color:var(--brass);}
+  .option:hover .mark{border-color:var(--accent); color:var(--accent);}
   .back-row{margin-top:22px;}
   .back-btn{
     background:none; border:none; font-family:inherit; cursor:pointer;
-    color:var(--slate); font-size:13px; font-weight:700;
+    color:var(--slate); font-size:14px; font-weight:700;
     padding:6px 2px;
   }
   .back-btn:hover{color:var(--ink);}
 
   /* ---- メール取得（同意）---- */
-  .gate-eyebrow{font-size:12px; font-weight:700; letter-spacing:.1em; color:var(--brass); margin-bottom:8px;}
+  .gate-eyebrow{font-size:14px; font-weight:700; letter-spacing:.1em; color:var(--accent); margin-bottom:8px;}
   .gate-title{font-size:20px; font-weight:900; margin:0 0 8px;}
-  .gate-lead{font-size:13.5px; color:var(--ink-soft); margin:0 0 20px;}
+  .gate-lead{font-size:14px; color:var(--ink-soft); margin:0 0 20px;}
   .field{margin-bottom:16px;}
-  .field label{display:block; font-size:12.5px; font-weight:700; color:var(--slate); margin-bottom:6px;}
+  .field label{display:block; font-size:14px; font-weight:700; color:var(--slate); margin-bottom:6px;}
   .field input[type="email"]{
     width:100%; font-family:inherit; font-size:16px; color:var(--ink);
     padding:14px 15px; border:1.5px solid var(--line-strong); border-radius:12px;
@@ -215,13 +215,13 @@
     border-radius:12px; padding:14px 15px; margin-bottom:18px;
   }
   .consent input[type="checkbox"]{
-    width:20px; height:20px; margin:2px 0 0; flex:0 0 auto; accent-color:var(--brass); cursor:pointer;
+    width:20px; height:20px; margin:2px 0 0; flex:0 0 auto; accent-color:var(--accent); cursor:pointer;
   }
-  .consent label{font-size:12.5px; line-height:1.7; color:var(--ink-soft); cursor:pointer;}
-  .consent a{color:var(--brass); font-weight:700;}
-  .form-note{font-size:12px; color:var(--slate); margin-top:14px; line-height:1.7;}
+  .consent label{font-size:14px; line-height:1.7; color:var(--ink-soft); cursor:pointer;}
+  .consent a{color:var(--accent); font-weight:700;}
+  .form-note{font-size:14px; color:var(--slate); margin-top:14px; line-height:1.7;}
   .error{
-    display:none; font-size:12.5px; font-weight:700; color:#B23B3B;
+    display:none; font-size:14px; font-weight:700; color:#B23B3B;
     background:#FBEDED; border:1px solid #F2D3D3; border-radius:10px;
     padding:10px 13px; margin-bottom:16px;
   }
@@ -229,11 +229,13 @@
 
   /* ---- 結果（名札）---- */
   .result-intro{font-size:14px; color:var(--ink-soft); text-align:center; margin:2px 0 16px;}
+  .unlock-copy{font-size:14px; line-height:1.85; color:var(--ink-soft); margin:22px 0 18px; text-align:center;}
+  .unlock-copy strong{color:var(--ink); font-weight:700;}
   .nameplate{
     position:relative;
     text-align:center;
-    background:linear-gradient(180deg,#FFFDF7, var(--brass-bg));
-    border:2px solid var(--brass);
+    background:linear-gradient(180deg,#FBFDFF, var(--accent-bg));
+    border:2px solid var(--accent);
     border-radius:18px;
     padding:26px 20px;
     box-shadow:0 10px 30px rgba(169,120,42,.16);
@@ -243,33 +245,33 @@
   .nameplate .pin{
     position:absolute; top:12px; left:50%; transform:translateX(-50%);
     width:9px; height:9px; border-radius:50%;
-    background:var(--brass); box-shadow:0 0 0 3px var(--brass-bg);
+    background:var(--accent); box-shadow:0 0 0 3px var(--accent-bg);
   }
-  .nameplate .of9{font-size:12px; font-weight:700; letter-spacing:.1em; color:var(--brass); margin-top:6px;}
+  .nameplate .of9{font-size:14px; font-weight:700; letter-spacing:.1em; color:var(--accent); margin-top:6px;}
   .nameplate .risk-name{
     font-size:34px; font-weight:900; line-height:1.35; color:var(--ink); margin:6px 0 2px;
   }
-  .nameplate .risk-name .sfx{color:var(--brass);}
+  .nameplate .risk-name .sfx{color:var(--accent);}
   .result-block{margin-top:22px;}
   .result-block h3{
-    font-size:12.5px; font-weight:700; letter-spacing:.06em; color:var(--brass);
+    font-size:14px; font-weight:700; letter-spacing:.06em; color:var(--accent);
     margin:0 0 6px; display:flex; align-items:center; gap:7px;
   }
-  .result-block h3::before{content:""; width:16px; height:2px; background:var(--brass); border-radius:2px;}
+  .result-block h3::before{content:""; width:16px; height:2px; background:var(--accent); border-radius:2px;}
   .result-block p{font-size:14px; line-height:1.85; color:var(--ink-soft); margin:0;}
   .draft-tag{
-    font-size:10.5px; font-weight:700; color:var(--slate);
+    font-size:12px; font-weight:700; color:var(--slate);
     border:1px solid var(--line-strong); border-radius:6px; padding:1px 6px; margin-left:6px;
   }
   .result-foot{
     margin-top:24px; padding-top:18px; border-top:1px solid var(--line);
-    font-size:12.5px; color:var(--slate); line-height:1.7;
+    font-size:14px; color:var(--slate); line-height:1.7;
   }
   .result-cta{margin-top:18px; display:flex; flex-direction:column; gap:10px;}
 
   /* 進捗の“紙のクセ”下部の署名 */
   .footsign{
-    text-align:center; font-size:11.5px; color:var(--slate);
+    text-align:center; font-size:12px; color:var(--slate);
     margin-top:auto; padding-top:26px;
   }
 
@@ -314,16 +316,12 @@
   <!-- ============ イントロ ============ -->
   <section id="s-intro" class="screen active">
     <div class="card">
-      <span class="intro-eyebrow">3分以内・最短2問</span>
+      <span class="intro-eyebrow">所要時間1分以内</span>
       <h1>あなたの仕事のクセに、<br><span class="accent">名前</span>をつける。</h1>
       <p class="lead">
-        いくつかの質問に答えると、9種類の「仕事に潜みやすいリスク」の中から、
+        いくつかの質問に答えると、「仕事に潜みやすいリスク」の中から、
         いま自分に潜んでいるかもしれないものを1つお伝えします。
       </p>
-      <div class="meta-row">
-        <span class="chip">最短2問・最長3問</span>
-        <span class="chip">9種類のリスク</span>
-      </div>
       <p class="note">
         本診断は医学的・心理学的な診断ではなく、楽しみながら自分の仕事のクセを振り返るための簡易コンテンツです。
         結果は「○○リスクが潜んでいるかもしれない」という形でお伝えします。
@@ -350,70 +348,66 @@
     </div>
   </section>
 
-  <!-- ============ メール取得（同意）============ -->
-  <section id="s-gate" class="screen">
-    <div class="card">
-      <div class="gate-eyebrow">あと一歩で結果が出ます</div>
-      <h2 class="gate-title">診断結果をメールでもお届けします</h2>
-      <p class="gate-lead">
-        メールアドレスをご登録いただくと、診断結果と、そのリスクへのワンポイントを画面でご覧いただけます。
-      </p>
-
-      <div class="error" id="gateError"></div>
-
-      <!-- Benchmark送信用の隠しiframe（ページ遷移せず登録するため） -->
-      <iframe name="bm_target" id="bmTarget" style="display:none" title="登録処理"></iframe>
-
-      <form id="gateForm" novalidate>
-        <div class="field">
-          <label for="email">メールアドレス</label>
-          <input type="email" id="email" name="email" inputmode="email" autocomplete="email"
-                 placeholder="you@example.com" required>
-        </div>
-
-        <div class="consent">
-          <input type="checkbox" id="agree" required>
-          <label for="agree">
-            ご登録のメールアドレス宛に、〔配信元名〕からのメールマガジンをお送りすることに同意します。
-            配信は無料で、いつでも解除できます。（<a href="#" id="privacyLink" target="_blank" rel="noopener">プライバシーポリシー</a>）
-          </label>
-        </div>
-
-        <button type="submit" class="btn btn-brass" id="gateSubmit">結果を見る</button>
-        <p class="form-note">
-          ここで取得したメールアドレスは、本特典専用の配信リストとして管理されます。
-        </p>
-      </form>
-    </div>
-  </section>
-
-  <!-- ============ 結果（名札）============ -->
+  <!-- ============ 結果（名前だけ表示 → メール入力 → 詳しい結果）============ -->
   <section id="s-result" class="screen">
     <div class="card">
+      <!-- ① 結果名（名札） -->
       <p class="result-intro">あなたに潜んでいるかもしれないのは……</p>
       <div class="nameplate">
         <span class="pin"></span>
-        <div class="of9">9種類のリスクのうち</div>
         <div class="risk-name" id="riskName"></div>
       </div>
 
-      <div class="result-block">
-        <h3>どんなリスク？</h3>
-        <p id="riskDetail"></p>
-      </div>
-      <div class="result-block">
-        <h3>注意したいポイント<span class="draft-tag" id="draftTag">※文言確認中</span></h3>
-        <p id="riskPoint"></p>
+      <!-- ② メール入力（詳しい結果を見るため） -->
+      <div id="unlockArea">
+        <p class="unlock-copy">
+          診断が終わりました。あなたに潜んでいるリスクは何だったでしょうか？<br>
+          メールアドレスを入力すると、<strong>診断結果と簡単な対処法</strong>をご覧いただけます。
+        </p>
+
+        <div class="error" id="gateError"></div>
+
+        <!-- Benchmark送信用の隠しiframe（ページ遷移せず登録するため） -->
+        <iframe name="bm_target" id="bmTarget" style="display:none" title="登録処理"></iframe>
+
+        <form id="gateForm" novalidate>
+          <div class="field">
+            <label for="email">メールアドレス</label>
+            <input type="email" id="email" name="email" inputmode="email" autocomplete="email"
+                   placeholder="you@example.com" required>
+          </div>
+
+          <div class="consent">
+            <input type="checkbox" id="agree" required>
+            <label for="agree">
+              ご登録のメールアドレス宛に、〔配信元名〕からのメールマガジンをお送りすることに同意します。
+              配信は無料で、いつでも解除できます。（<a href="#" id="privacyLink" target="_blank" rel="noopener">プライバシーポリシー</a>）
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-accent" id="gateSubmit">診断結果と対処法を見る</button>
+        </form>
       </div>
 
-      <p class="result-foot">
-        これはあくまで「潜んでいるかもしれない」傾向です。名前をつけて眺めてみると、
-        漠然とした違和感を具体的に捉えやすくなります。本書では、その考え方をより深く紹介しています。
-      </p>
+      <!-- ③ 詳しい結果（送信後に表示） -->
+      <div id="detailArea" hidden>
+        <div class="result-block">
+          <h3>どんなリスク？</h3>
+          <p id="riskDetail"></p>
+        </div>
+        <div class="result-block">
+          <h3>簡単な対処法<span class="draft-tag" id="draftTag">※文言確認中</span></h3>
+          <p id="riskPoint"></p>
+        </div>
 
-      <div class="result-cta">
-        <a class="btn btn-primary" id="bookLink" href="#" target="_blank" rel="noopener">書籍で詳しく読む</a>
-        <button class="btn btn-ghost" id="retryBtn">もう一度診断する</button>
+        <p class="result-foot">
+          これはあくまで「潜んでいるかもしれない」傾向です。名前をつけて眺めてみると、
+          漠然とした違和感を具体的に捉えやすくなります。
+        </p>
+
+        <div class="result-cta">
+          <button class="btn btn-ghost" id="retryBtn">もう一度診断する</button>
+        </div>
       </div>
     </div>
   </section>
@@ -445,8 +439,6 @@ const CONFIG = {
   BENCHMARK_ACTION: "",          // 例: "https://app.benchmarkemail.com/Signup/..."
   BENCHMARK_EMAIL_FIELD: "",     // 例: "email" もしくは生成コードの name 属性
   BENCHMARK_RESULT_FIELD: "",    // 任意。空なら結果は送信しません
-  RESULT_GATE: true,             // true=結果表示前にメール登録が必須 / false=先に結果・メール任意
-  BOOK_URL: "#",                 // 書籍の購入・紹介ページURL
   PRIVACY_URL: "#",              // プライバシーポリシーURL
 
   /* ★テスト公開用の“目隠し”パスワード（任意）
@@ -556,7 +548,6 @@ const screens = {
   lock:document.getElementById("s-lock"),
   intro:document.getElementById("s-intro"),
   question:document.getElementById("s-question"),
-  gate:document.getElementById("s-gate"),
   result:document.getElementById("s-result")
 };
 function show(name){
@@ -609,8 +600,7 @@ function renderQuestion(key){
 function choose(opt){
   if(opt.result){
     pendingResult = opt.result;
-    if(CONFIG.RESULT_GATE){ openGate(); }
-    else { renderResult(pendingResult); }
+    renderResult(pendingResult);   // 結果名を表示（詳細はメール送信後に開く）
   } else if(opt.next){
     historyStack.push(opt.next);
     renderQuestion(opt.next);
@@ -633,15 +623,15 @@ $("backBtn").addEventListener("click", ()=>{
 $("retryBtn").addEventListener("click", ()=>{
   historyStack = [];
   pendingResult = null;
+  // 状態をリセット（メール欄を再表示・詳細を隠す）
+  $("detailArea").hidden = true;
+  $("unlockArea").hidden = false;
+  $("gateForm").reset();
+  $("gateError").classList.remove("show");
   show("intro");
 });
 
-/* ===================== メール取得（同意）===================== */
-function openGate(){
-  $("gateError").classList.remove("show");
-  show("gate");
-}
-
+/* ===================== メール送信 → 詳しい結果を表示 ===================== */
 $("gateForm").addEventListener("submit", function(e){
   e.preventDefault();
   const email = $("email").value.trim();
@@ -659,7 +649,12 @@ $("gateForm").addEventListener("submit", function(e){
   err.classList.remove("show");
 
   submitToBenchmark(email, pendingResult);
-  renderResult(pendingResult);
+
+  // メール入力欄を閉じ、詳しい結果を表示
+  $("unlockArea").hidden = true;
+  $("detailArea").hidden = false;
+  postHeightSoon();
+  $("detailArea").scrollIntoView({behavior:"smooth", block:"nearest"});
 });
 
 /* ベンチマークへ登録（ページ遷移しないよう隠しiframeへPOST） */
@@ -691,12 +686,16 @@ function submitToBenchmark(email, resultKey){
   }
 }
 
-/* ===================== 結果表示 ===================== */
+/* ===================== 結果名の表示（詳細は送信後） ===================== */
 function renderResult(key){
   const r = RESULTS[key];
   $("riskName").innerHTML = `${r.name}<span class="sfx">リスク！</span>`;
   $("riskDetail").textContent = r.detail;
   $("riskPoint").textContent = r.point;
+  // メール入力を表示・詳細を隠した状態で結果画面へ
+  $("detailArea").hidden = true;
+  $("unlockArea").hidden = false;
+  $("gateError").classList.remove("show");
   show("result");
 }
 
@@ -713,7 +712,6 @@ document.getElementById("lockForm").addEventListener("submit", function(e){
 });
 
 /* ===================== リンク設定の反映＆起動 ===================== */
-document.getElementById("bookLink").href = CONFIG.BOOK_URL || "#";
 document.getElementById("privacyLink").href = CONFIG.PRIVACY_URL || "#";
 
 // 埋め込み時のレイアウト調整と高さ通知
