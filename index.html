@@ -253,11 +253,8 @@
   }
   .nameplate .risk-name .sfx{color:var(--accent);}
   .result-block{margin-top:22px;}
-  .result-block h3{
-    font-size:14px; font-weight:700; letter-spacing:.06em; color:var(--accent);
-    margin:0 0 6px; display:flex; align-items:center; gap:7px;
-  }
-  .result-block h3::before{content:""; width:16px; height:2px; background:var(--accent); border-radius:2px;}
+.result-block h3 { display:flex; align-items:center; gap:.4em; }
+.result-block h3 .h3-ico { width:1.05em; height:1.05em; flex:0 0 auto; }
   .result-block p{font-size:14px; line-height:1.85; color:var(--ink-soft); margin:0;}
   .draft-tag{
     font-size:12px; font-weight:700; color:var(--slate);
@@ -392,11 +389,29 @@
       <!-- ③ 詳しい結果（送信後に表示） -->
       <div id="detailArea" hidden>
         <div class="result-block">
-          <h3>どんなリスク？</h3>
+          <h3>
+            <span class="h3-ico-wrap">
+              <svg class="h3-ico" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <path d="M12 4.5 L20.5 19 H3.5 Z" stroke="#1D6DAD" stroke-width="1.8" stroke-linejoin="round"/>
+  <line x1="12" y1="10" x2="12" y2="14" stroke="#1D6DAD" stroke-width="1.8" stroke-linecap="round"/>
+  <circle cx="12" cy="16.6" r="1" fill="#1D6DAD"/>
+</svg>
+            </span>
+            どんなリスク？
+          </h3>
           <p id="riskDetail"></p>
         </div>
         <div class="result-block">
-          <h3>簡単な対処法</h3>
+          <h3>
+            <span class="h3-ico-wrap">
+              <svg class="h3-ico" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <circle cx="12" cy="9.5" r="5.3" stroke="#1D6DAD" stroke-width="1.7"/>
+  <line x1="9.8" y1="16.3" x2="14.2" y2="16.3" stroke="#1D6DAD" stroke-width="1.7" stroke-linecap="round"/>
+  <line x1="10.4" y1="18.7" x2="13.6" y2="18.7" stroke="#1D6DAD" stroke-width="1.7" stroke-linecap="round"/>
+</svg>
+            </span>
+            簡単な対処法
+          </h3>
           <p id="riskPoint"></p>
         </div>
 
